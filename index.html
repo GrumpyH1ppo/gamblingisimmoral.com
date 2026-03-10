@@ -3,30 +3,26 @@
 <head>
   <title>Gambling Is Immoral</title>
   <style>
+    /* ---- PAGE LAYOUT ---- */
     body { font-family: Georgia, serif; max-width: 700px; margin: 60px auto; padding: 0 20px; line-height: 1.7; }
     h1 { border-bottom: 2px solid #111; padding-bottom: 10px; }
     hr { border: none; border-top: 1px solid #ccc; margin: 40px 0; }
     footer { margin-top: 60px; font-size: 0.85em; color: #666; }
+
+    /* ---- SLOT MACHINE ---- */
+    #machine { text-align: center; margin: 30px 0; }
+    #reels { font-size: 3.5em; letter-spacing: 15px; margin: 20px 0; }
+    #spin-btn { font-size: 1em; padding: 10px 30px; cursor: pointer; background: #111; color: white; border: none; }
+    #spin-btn:hover { background: #333; }
+    #message { margin-top: 15px; font-size: 1em; min-height: 24px; }
+    #counter { font-size: 0.9em; color: #666; margin-top: 8px; }
   </style>
 </head>
 <body>
 
   <h1>Gambling Is Immoral</h1>
-  <p>An advocacy site against the gambling industry.</p>
+  <p>An advocacy site against the gambling industry. Try the slot machine below — the house always wins.</p>
 
-
-  <p>Gambling is designed to be addictive. This site exists to raise awareness
-  about its harms — to individuals, families, and communities.</p>
-
-  <p>
-    <a href="about.html">About</a> &mdash;
-    <a href="harm.html">The Harm</a> &mdash;
-    <a href="help.html">Get Help</a> &mdash;
-    <a href="drip.png">Drip</a>
-
-  </p>
-
-  <hr>
   <!-- SLOT MACHINE -->
   <div id="machine">
     <div id="reels">X X X</div>
@@ -35,7 +31,18 @@
     <div id="counter">Spins: 0 — Wins: 0</div>
   </div>
 
- 
+  <hr>
+
+  <p>
+    <a href="about.html">About</a> —
+    <a href="harm.html">The Harm</a> —
+    <a href="help.html">Get Help</a>
+  </p>
+
+  <hr>
+
+  <footer>gamblingisimmoral.com — built to inform, not to profit.</footer>
+
   <script>
     // The symbols the reels can land on
     const symbols = ["1", "2", "3", "4", "5", "6", "7"];
@@ -60,7 +67,7 @@
       if (r1 === r2 && r2 === r3) {
         totalWins++;
         document.getElementById("message").style.color = "green";
-        document.getElementById("message").textContent = "You won! See it's worth it.";
+        document.getElementById("message").textContent = "You won! See it.";
       } else {
         document.getElementById("message").style.color = "red";
         document.getElementById("message").textContent = "You lost. Next one for sure.";
@@ -70,8 +77,6 @@
       document.getElementById("counter").textContent = "Spins: " + totalSpins + " — Wins: " + totalWins;
     }
   </script>
-
-  <footer>gamblingisimmoral.com &mdash; built to inform, not to profit.</footer>
 
 </body>
 </html>
