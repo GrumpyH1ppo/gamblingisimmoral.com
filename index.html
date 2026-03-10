@@ -28,6 +28,60 @@
   </p>
 
   <hr>
+  <!-- SLOT MACHINE -->
+  <div id="machine">
+    <div id="reels">X X X</div>
+    <button id="spin-btn" onclick="spin()">Spin</button>
+    <div id="message"></div>
+    <div id="counter">Spins: 0 — Wins: 0</div>
+  </div>
+
+  <hr>
+
+  <p>
+    <a href="about.html">About</a> —
+    <a href="harm.html">The Harm</a> —
+    <a href="help.html">Get Help</a>
+  </p>
+
+  <hr>
+
+  <footer>gamblingisimmoral.com — built to inform, not to profit.</footer>
+
+  <script>
+    // The symbols the reels can land on
+    const symbols = ["1", "2", "3", "4", "5", "6", "7"];
+
+    // Track spins and wins
+    let totalSpins = 0;
+    let totalWins = 0;
+
+    function spin() {
+      // Pick 3 random symbols
+      let r1 = symbols[Math.floor(Math.random() * symbols.length)];
+      let r2 = symbols[Math.floor(Math.random() * symbols.length)];
+      let r3 = symbols[Math.floor(Math.random() * symbols.length)];
+
+      // Show them on screen
+      document.getElementById("reels").textContent = r1 + " " + r2 + " " + r3;
+
+      // Count the spin
+      totalSpins++;
+
+      // Check if all 3 match (a win)
+      if (r1 === r2 && r2 === r3) {
+        totalWins++;
+        document.getElementById("message").style.color = "green";
+        document.getElementById("message").textContent = "You won! See it's worth it.";
+      } else {
+        document.getElementById("message").style.color = "red";
+        document.getElementById("message").textContent = "You lost. Next one for sure.";
+      }
+
+      // Update the counter
+      document.getElementById("counter").textContent = "Spins: " + totalSpins + " — Wins: " + totalWins;
+    }
+  </script>
 
   <footer>gamblingisimmoral.com &mdash; built to inform, not to profit.</footer>
 
